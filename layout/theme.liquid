@@ -1,0 +1,16 @@
+<html>
+    <head>
+        {{content_for_header}}
+        {{ 'tailwind.css' | asset_url | stylesheet_tag }}
+        {{ 'theme.css' | asset_url | stylesheet_tag }}
+        
+    </head>
+    <body class="bg-gray-700 px-10 py-20 mx-auto">
+        {% section 'topbar' %}
+        {% section 'header' %}
+        {% section 'footer' %}
+        <main id="main" role="main">
+            {{content_for_layout}}
+        </main>
+    </body>
+</html>

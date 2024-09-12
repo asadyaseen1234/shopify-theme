@@ -1,0 +1,62 @@
+{%  if section.settings['show-announcement']  %}  
+    <section>
+        <div class="announcemnet_bar">
+            <div class="announcemnet_bar_left_column">
+                {% if section.settings.image2 != blank %}
+                    <img 
+                         width="24"
+                         height="24"
+                         loading="lazy"
+                    src="{{ section.settings.image2 |  image_url }}" />
+                {% else %}
+                <img 
+                     width="24"
+                     height="24"
+                     loading="lazy"
+                src="{{ 'b.png' |  asset_img_url }}" >
+                
+                {% endif %}
+            </div>
+            <div class="announcemnet_bar_right_column">
+                <ul class="announcemnet_bar_inner_list">
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+<style>
+    .announcemnet_bar{
+        background: {{ section.settings.background }};
+        color: {{ section.settings.text_color }};
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Announcement Bar",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show-announcement",
+            "label": "Announcement Bar",
+            "default": true
+        },
+        {
+            "type": "color",
+            "id": "background",
+            "label": "Topbar Background Color",
+            "default": "rgba(0,0,0,0)"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Topbar Text Color",
+            "default": "rgba(0,0,0,0)"
+        }
+    ],
+    "presets": []
+}
+{% endschema %}
+
